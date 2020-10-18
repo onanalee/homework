@@ -21,6 +21,7 @@ for song in songs:
 
     #title     #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.albumtitle.ellipsis
     #artist    #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis
+    #rank      #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.number > span
     rank = song.select_one('td.number').text[0:2].strip()
     song_name = song.select_one('td.info > a.albumtitle.ellipsis').text
     artist = song.select_one('td.info > a.artist.ellipsis').text
@@ -32,4 +33,4 @@ for song in songs:
         'artist': artist
     }
     db.songs.insert_one(doc)
-#body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.number > span
+
